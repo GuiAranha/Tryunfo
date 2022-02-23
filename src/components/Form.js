@@ -12,7 +12,7 @@ class Form extends Component {
         <h1>Estados e React - Tecnologia fantástica ou reagindo a regionalismos?</h1>
         <form className="form">
 
-          <label /*  htmlFor={ nameCard } */>
+          <label htmlFor="nameCard">
             Nome
             <input
               type="text"
@@ -23,7 +23,7 @@ class Form extends Component {
             />
           </label>
 
-          <label /* htmlFor={ description } */>
+          <label htmlFor="description">
             Descricao
             <input
               type="textarea"
@@ -34,7 +34,7 @@ class Form extends Component {
             />
           </label>
 
-          <label /* htmlFor={ attr1 } */>
+          <label htmlFor="attr1">
             Attr 01
             <input
               type="number"
@@ -45,7 +45,7 @@ class Form extends Component {
             />
           </label>
 
-          <label /* htmlFor={ attr2 } */>
+          <label htmlFor="attr2">
             Attr 02
             <input
               type="number"
@@ -56,7 +56,7 @@ class Form extends Component {
             />
           </label>
 
-          <label /* htmlFor={ attr3 } */>
+          <label htmlFor="attr3">
             Attr 03
             <input
               type="number"
@@ -67,7 +67,7 @@ class Form extends Component {
             />
           </label>
 
-          <label /* htmlFor={ imgCard } */>
+          <label htmlFor="imgCard">
             Imagem
             <input
               type="text"
@@ -78,7 +78,7 @@ class Form extends Component {
             />
           </label>
 
-          <label /* htmlFor={ imgCard } */>
+          <label htmlFor="sltCard">
             Raridade
             <select
               data-testid="rare-input"
