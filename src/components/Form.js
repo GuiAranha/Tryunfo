@@ -1,23 +1,12 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
 
 class Form extends Component {
-/*   constructor() {
-    super();
-
-    this.handleChange = this.handleChange.bind(this);
-
-    this.state = {
-      estadoFavorito: '',
-    };
-  } */
-
-  /* handleChange(event) {
-    this.setState({
-      estadoFavorito: event.target.value,
-    });
-  } */
-
   render() {
+    const { cardName, cardDescription, cardAttr1, cardAttr2,
+      cardAttr3, cardImage, cardRare, cardTrunfo, hasTrunfo,
+      isSaveButtonDisabled, onInputChange, onSaveButtonClick } = this.props;
+
     return (
       <div>
         <h1>Estados e React - Tecnologia fantástica ou reagindo a regionalismos?</h1>
@@ -29,6 +18,8 @@ class Form extends Component {
               type="text"
               data-testid="name-input"
               id="nameCard"
+              value={ cardName }
+              onChange={ onInputChange }
             />
           </label>
 
@@ -38,6 +29,8 @@ class Form extends Component {
               type="textarea"
               data-testid="description-input"
               id="description"
+              value={ cardDescription }
+              onChange={ onInputChange }
             />
           </label>
 
@@ -47,6 +40,8 @@ class Form extends Component {
               type="number"
               data-testid="attr1-input"
               id="attr1"
+              value={ cardAttr1 }
+              onChange={ onInputChange }
             />
           </label>
 
@@ -56,6 +51,8 @@ class Form extends Component {
               type="number"
               data-testid="attr2-input"
               id="attr2"
+              value={ cardAttr2 }
+              onChange={ onInputChange }
             />
           </label>
 
@@ -65,6 +62,8 @@ class Form extends Component {
               type="number"
               data-testid="attr3-input"
               id="attr3"
+              value={ cardAttr3 }
+              onChange={ onInputChange }
             />
           </label>
 
@@ -74,12 +73,19 @@ class Form extends Component {
               type="text"
               data-testid="image-input"
               id="imgCard"
+              value={ cardImage }
+              onChange={ onInputChange }
             />
           </label>
 
           <label /* htmlFor={ imgCard } */>
             Raridade
-            <select data-testid="rare-input" id="sltCard">
+            <select
+              data-testid="rare-input"
+              id="sltCard"
+              value={ cardRare }
+              onChange={ onInputChange }
+            >
               <option value="normal">normal</option>
               <option value="raro">raro</option>
               <option value="muito raro">muito raro</option>
@@ -91,16 +97,40 @@ class Form extends Component {
               type="checkbox"
               data-testid="trunfo-input"
               id="chkTrunfo"
+              checked={ cardTrunfo }
+              onChange={ onInputChange }
             />
             Super Trunfo
           </label>
 
-          <button type="submit" data-testid="save-button">Salvar</button>
+          <button
+            type="submit"
+            data-testid="save-button"
+            disabled={ isSaveButtonDisabled }
+            onClick={ onSaveButtonClick }
+          >
+            Salvar
+          </button>
 
         </form>
       </div>
     );
   }
 }
+
+Form.propTypes = {
+  cardName: propTypes.string.isRequired,
+  cardDescription: propTypes.string.isRequired,
+  cardAttr1: propTypes.string.isRequired,
+  cardAttr2: propTypes.string.isRequired,
+  cardAttr3: propTypes.string.isRequired,
+  cardImage: propTypes.string.isRequired,
+  cardRare: propTypes.string.isRequired,
+  cardTrunfo: propTypes.bool.isRequired,
+  hasTrunfo: propTypes.bool.isRequired,
+  isSaveButtonDisabled: propTypes.bool.isRequired,
+  onInputChange: propTypes.bool.isRequired,
+  onSaveButtonClick: propTypes.bool.isRequired,
+};
 
 export default Form;
