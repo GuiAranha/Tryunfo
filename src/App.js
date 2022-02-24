@@ -15,9 +15,10 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
-      isSaveButtonDisabled: '',
+      isSaveButtonDisabled: true,
     };
     this.onInputChange = this.onInputChange.bind(this);
+    this.saveButton = this.saveButton.bind(this);
   }
 
   onInputChange({ target }) {
@@ -26,7 +27,32 @@ class App extends React.Component {
 
     this.setState({
       [name]: value,
-    });
+    }, () => this.saveButton());
+  }
+
+  saveButton() {
+    const { state } = this;
+    const sum = parseInt(state.cardAttr1, 10)
+    + parseInt(state.cardAttr2, 10)
+    + parseInt(state.cardAttr3, 10);
+    const max = 90;
+    const total = 210;
+
+    if (state.cardName !== ''
+    && state.cardDescription !== ''
+    && state.cardImage !== ''
+    && state.cardRare !== ''
+    && parseInt(state.cardAttr1, 10) >= 0
+    && parseInt(state.cardAttr1, 10) <= max
+    && parseInt(state.cardAttr2, 10) >= 0
+    && parseInt(state.cardAttr2, 10) <= max
+    && parseInt(state.cardAttr3, 10) >= 0
+    && parseInt(state.cardAttr3, 10) <= max
+    && sum <= total) {
+      this.setState({ isSaveButtonDisabled: false });
+    } else {
+      this.setState({ isSaveButtonDisabled: true });
+    }
   }
 
   render() {
