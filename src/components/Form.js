@@ -20,6 +20,7 @@ class Form extends Component {
               id="nameCard"
               value={ cardName }
               onChange={ onInputChange }
+              name="cardName"
             />
           </label>
 
@@ -31,6 +32,7 @@ class Form extends Component {
               id="description"
               value={ cardDescription }
               onChange={ onInputChange }
+              name="cardDescription"
             />
           </label>
 
@@ -42,6 +44,7 @@ class Form extends Component {
               id="attr1"
               value={ cardAttr1 }
               onChange={ onInputChange }
+              name="cardAttr1"
             />
           </label>
 
@@ -53,6 +56,7 @@ class Form extends Component {
               id="attr2"
               value={ cardAttr2 }
               onChange={ onInputChange }
+              name="cardAttr2"
             />
           </label>
 
@@ -64,6 +68,7 @@ class Form extends Component {
               id="attr3"
               value={ cardAttr3 }
               onChange={ onInputChange }
+              name="cardAttr3"
             />
           </label>
 
@@ -75,6 +80,7 @@ class Form extends Component {
               id="imgCard"
               value={ cardImage }
               onChange={ onInputChange }
+              name="cardImage"
             />
           </label>
 
@@ -85,6 +91,7 @@ class Form extends Component {
               id="sltCard"
               value={ cardRare }
               onChange={ onInputChange }
+              name="cardRare"
             >
               <option value="normal">normal</option>
               <option value="raro">raro</option>
@@ -99,6 +106,7 @@ class Form extends Component {
               id="chkTrunfo"
               checked={ cardTrunfo }
               onChange={ onInputChange }
+              name="cardTrunfo"
             />
             Super Trunfo
           </label>
@@ -129,8 +137,6 @@ Form.propTypes = {
   cardTrunfo: propTypes.bool.isRequired,
   hasTrunfo: propTypes.bool.isRequired,
   isSaveButtonDisabled: propTypes.bool.isRequired,
-  onInputChange: propTypes.bool.isRequired,
-  onSaveButtonClick: propTypes.bool.isRequired,
 };
 
 export default Form;
