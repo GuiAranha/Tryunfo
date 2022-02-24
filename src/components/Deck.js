@@ -4,20 +4,31 @@ import Card from './Card';
 
 class Deck extends React.Component {
   render() {
-    const { items } = this.props;
+    const { items, onDeleteButtonClick } = this.props;
     return (
       <div>
-        {items.map((card) => (<Card
-          key={ card.name }
-          cardName={ card.name }
-          cardDescription={ card.description }
-          cardAttr1={ card.attr1 }
-          cardAttr2={ card.attr2 }
-          cardAttr3={ card.attr3 }
-          cardImage={ card.image }
-          cardRare={ card.rare }
-          cardTrunfo={ card.trunfo }
-        />))}
+        {items.map((card) => (
+          <div key={ card.name }>
+            <Card
+              cardName={ card.name }
+              cardDescription={ card.description }
+              cardAttr1={ card.attr1 }
+              cardAttr2={ card.attr2 }
+              cardAttr3={ card.attr3 }
+              cardImage={ card.image }
+              cardRare={ card.rare }
+              cardTrunfo={ card.trunfo }
+            />
+            <button
+              type="button"
+              data-testid="delete-button"
+              name={ card.name }
+              onClick={ onDeleteButtonClick }
+            >
+              Excluir
+            </button>
+          </div>
+        ))}
       </div>
     );
   }
@@ -36,6 +47,7 @@ Deck.propTypes = {
       trunfo: propTypes.bool,
     }),
   ).isRequired,
+  onDeleteButtonClick: propTypes.func.isRequired,
 };
 
 export default Deck;

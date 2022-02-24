@@ -23,6 +23,7 @@ class App extends React.Component {
     this.enableButton = this.enableButton.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.hasTrunfo = this.hasTrunfo.bind(this);
+    this.onDeleteButtonClick = this.onDeleteButtonClick.bind(this);
   }
 
   onInputChange({ target }) {
@@ -57,7 +58,11 @@ class App extends React.Component {
       cardRare: 'normal',
       isSaveButtonDisabled: true,
     }));
-    console.log('passei por aqui');
+  }
+
+  onDeleteButtonClick(event) {
+    const { deck } = this.state;
+    this.setState({ deck: deck.filter(({ name }) => name !== event.target.name) });
   }
 
   hasTrunfo() {
@@ -126,7 +131,10 @@ class App extends React.Component {
           />
         </div>
         <div>
-          <Deck items={ state.deck } />
+          <Deck
+            items={ state.deck }
+            onDeleteButtonClick={ this.onDeleteButtonClick }
+          />
         </div>
       </>
     );
