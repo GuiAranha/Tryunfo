@@ -21,6 +21,7 @@ class App extends React.Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.enableButton = this.enableButton.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
+    this.hasTrunfo = this.hasTrunfo.bind(this);
   }
 
   onInputChange({ target }) {
@@ -53,10 +54,14 @@ class App extends React.Component {
       cardAttr3: 0,
       cardImage: '',
       cardRare: 'normal',
-      cardTrunfo: false,
       isSaveButtonDisabled: true,
     }));
     console.log('passei por aqui');
+  }
+
+  hasTrunfo() {
+    const { state } = this;
+    return state.deck.some(({ trunfo }) => trunfo === true);
   }
 
   enableButton() {
@@ -104,6 +109,7 @@ class App extends React.Component {
             isSaveButtonDisabled={ state.isSaveButtonDisabled }
             onInputChange={ this.onInputChange }
             onSaveButtonClick={ this.onSaveButtonClick }
+            hasTrunfo={ this.hasTrunfo() }
           />
           <Card
             cardName={ state.cardName }
