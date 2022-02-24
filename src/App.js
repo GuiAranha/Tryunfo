@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import Deck from './components/Deck';
 
 class App extends React.Component {
   constructor() {
@@ -123,6 +124,9 @@ class App extends React.Component {
             isSaveButtonDisabled={ state.isSaveButtonDisabled }
             onInputChange={ this.onInputChange }
           />
+        </div>
+        <div>
+          <Deck items={ state.deck } />
         </div>
       </>
     );
